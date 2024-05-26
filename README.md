@@ -17,7 +17,5 @@ src/
           |--share-content/      # Implementing a user-friendly interface and functionality for sharing content.
           |--view-content/       # Implementing dynamic view content page.
           |--content-not-found/  # Implementing default content not found page for good user experience.
-
       /shared   #  Contains shared components, services, and helper functions used by multiple modules.
-
 ```

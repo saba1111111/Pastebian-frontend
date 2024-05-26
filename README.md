@@ -1,27 +1,23 @@
-# PastebianFrontend
+A Pastebin is a web application designed for storing and sharing plain text. Users can paste their text, set an expiration time, and receive a unique URL to share with others. This allows for easy and temporary sharing of information, facilitating collaboration and communication.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
+This repository contains the frontend part of the Pastebin project. To view the backend part, please click [here](https://github.com/saba1111111/Pastebian-backend).
 
-## Development server
+To run this Angular project, you need to have Node.js and npm installed. You can download and install Node.js from the Node.js official website. npm is distributed with Node.js, and you can verify its installation by running npm -v in your terminal. Additionally, you need to install the Angular CLI globally by running npm install -g @angular/cli.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+After setting up the prerequisites, clone the repository using git clone https://github.com/your-username/pastebin-frontend.git and navigate into the project directory with cd pastebin-frontend. Install the project dependencies by running npm install.
 
-## Code scaffolding
+To start the development server and run the application locally, execute the command ng serve. By default, the application will be accessible at http://localhost:4200/.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Project Structure
 
-## Build
+```
+src/
+   /app
+      /pages
+          |--share-content/      # Implementing a user-friendly interface and functionality for sharing content.
+          |--view-content/       # Implementing dynamic view content page.
+          |--content-not-found/  # Implementing default content not found page for good user experience.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+      /shared   #  Contains shared components, services, and helper functions used by multiple modules.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```

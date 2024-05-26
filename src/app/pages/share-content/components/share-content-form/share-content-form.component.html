@@ -1,0 +1,24 @@
+<form class="form-container" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-header">
+    <app-select
+      formControlName="expireAt"
+      [options]="contentExpireOptions"
+      [value]="defaultContentExpireTime"
+    ></app-select>
+
+    <app-button
+      [disabled]="form.invalid"
+      label="Share Content"
+      (clicked)="onSubmit()"
+    ></app-button>
+  </div>
+
+  <hr />
+
+  <div class="content-text-area-container">
+    <app-text-area
+      formControlName="content"
+      placeholder="Enter your description here"
+    ></app-text-area>
+  </div>
+</form>

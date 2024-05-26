@@ -1,0 +1,9 @@
+<div class="standalone-textarea">
+  <textarea
+    [attr.placeholder]="placeholder"
+    [(ngModel)]="value"
+    (ngModelChange)="onValueChange($event)"
+    [disabled]="disabled"
+    (blur)="onTouched()"
+  ></textarea>
+</div>

@@ -1,0 +1,17 @@
+<div class="form-container">
+  <div class="form-header">
+    <p class="remaining-time">
+      Expired In: <span>{{ expireIn | remainingTimeDisplayed }}</span>
+    </p>
+  </div>
+
+  <hr />
+
+  <div class="content-text-area-container">
+    <app-text-area
+      [value]="content"
+      [disabled]="true"
+      placeholder="Enter your description here"
+    ></app-text-area>
+  </div>
+</div>

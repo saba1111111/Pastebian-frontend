@@ -1,0 +1,17 @@
+.form-container {
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.form-header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-text-area-container {
+  height: 80vh;
+  margin-top: 20px;
+}

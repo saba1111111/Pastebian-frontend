@@ -1,0 +1,12 @@
+<div class="select-input-container">
+  <select
+    [disabled]="disabled"
+    [(ngModel)]="value"
+    (change)="handleChange($event)"
+    class="select-input"
+  >
+    <option *ngFor="let option of options" [value]="option.value">
+      {{ option.label }}
+    </option>
+  </select>
+</div>

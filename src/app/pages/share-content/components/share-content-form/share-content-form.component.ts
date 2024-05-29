@@ -22,16 +22,20 @@ export class ShareContentFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      content: ['', Validators.required],
-      expireAt: [this.defaultContentExpireTime, Validators.required],
-    });
+    this.createForm();
   }
 
   onSubmit(): void {
     this.contentService.createContent(this.form.value).subscribe({
       next: (data) => this.router.navigate([`/share-content/${data.id}`]),
       error: (error) => console.log(error),
+    });
+  }
+
+  createForm() {
+    this.form = this.formBuilder.group({
+      content: ['', Validators.required],
+      expireAt: [this.defaultContentExpireTime, Validators.required],
     });
   }
 }

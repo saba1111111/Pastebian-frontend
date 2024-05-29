@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IContent, ICreateContentInput } from '../interfaces';
 import { Observable } from 'rxjs';
+import { ServerConfig } from '../../../configs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContentService {
-  private serverUrl: string = 'http://localhost:8080';
+  private serverUrl: string = ServerConfig.url;
 
   constructor(private http: HttpClient) {}
 

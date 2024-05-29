@@ -1,6 +1,7 @@
 import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { ContentService } from '../../../../shared/services/content.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { mergeMap, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-display-content',
@@ -21,10 +22,15 @@ export class DisplayContentComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      const contentId = params['id'];
+    this.fetchContentDataBasedOnParam();
+  }
 
-      this.contentService.findContent(contentId).subscribe({
+  fetchContentDataBasedOnParam() {
+    this.route.params
+      .pipe(
+        switchMap((params) => this.contentService.findContent(params['id']))
+      )
+      .subscribe({
         next: (contentData) => {
           this.content = contentData.content;
           this.expireAt = contentData.expireAt;
@@ -32,13 +38,6 @@ export class DisplayContentComponent implements OnInit, OnDestroy {
         },
         error: () => this.router.navigate(['/share-content/content-not-found']),
       });
-    });
-  }
-
-  ngOnDestroy(): void {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-    }
   }
 
   startCountDown(): void {
@@ -59,6 +58,12 @@ export class DisplayContentComponent implements OnInit, OnDestroy {
     if (this.expireIn <= 0) {
       clearInterval(this.intervalId);
       this.router.navigate(['/share-content/content-not-found']);
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
     }
   }
 }
